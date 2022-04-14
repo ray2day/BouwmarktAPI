@@ -84,7 +84,7 @@ namespace BouwmarktAPI.Controllers                              // note: API con
                 return BadRequest("Vestiging niet gevonden.");
             }
             vestigingen.Remove(vestiging);
-            return Ok(vestiging);
+            return Ok(vestigingen);
         }
     }
 }
