@@ -1,50 +1,32 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BouwmarktAPI.Controllers                              // note: API controller (dus geen MVC controller)
+namespace BouwmarktAPI.Controllers
 {
-    [ApiController]
+    [ApiController]                                          // (API controller; dus geen MVC controller!! wel volgens MVC pattern!)
     [Route("api/[controller]")]
     public class VestigingController : ControllerBase
     {
-        private static List<Vestiging> vestigingen = new List<Vestiging>
-            {
-                    new Vestiging {
-                        VestigingsNummer = 1,
-                        Naam = "Praxis Oss",
-                        Adres = "Frankenweg 61",
-                        Plaats = "Oss",
-                        TelefoonNummer = "0412 690 680"},
-                    new Vestiging {
-                        VestigingsNummer = 2,
-                        Naam = "Praxis Drunen",
-                        Adres = "Christiaan Huygensweg 10",
-                        Plaats = "Drunen",
-                        TelefoonNummer = "0416 374 885"},
-                    new Vestiging {
-                        VestigingsNummer = 3,
-                        Naam = "Praxis Uden",
-                        Adres = "Industrielaan 9",
-                        Plaats = "Uden",
-                        TelefoonNummer = "0413 264 445"},
-                    new Vestiging {
-                        VestigingsNummer = 4,
-                        Naam = "Praxis Oisterwijk",
-                        Adres = "Sprendingenpark 44",
-                        Plaats = "Oisterwijk",
-                        TelefoonNummer = "013 521 0266"}
-            };
+        private readonly ApplicationDbContext _db;
+
+        public VestigingController(ApplicationDbContext db)
+        {
+            _db = db;
+        }
+
+
+        // /api/Vestiging/{id} | READ (Get)
 
         [HttpGet]
         public async Task<ActionResult<List<Vestiging>>> Get()
         {
-            return Ok(vestigingen);
+            return Ok(await _db.Vestigingen.ToListAsync());
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Vestiging>> Get(int id)
         {
-            var vestiging = vestigingen.Find(h => h.VestigingsNummer == id);
+            var vestiging = await _db.Vestigingen.FindAsync(id);
             if (vestiging == null)
             {
                 return BadRequest("Vestiging niet gevonden.");
@@ -52,39 +34,55 @@ namespace BouwmarktAPI.Controllers                              // note: API con
             return Ok(vestiging);
         }
 
+
+        // /api/Vestiging | CREATE (Post)
+
         [HttpPost]
         public async Task<ActionResult<List<Vestiging>>> AddVestiging(Vestiging vestiging)
         {
-            vestigingen.Add(vestiging);
-            return Ok(vestigingen);
+            _db.Vestigingen.Add(vestiging);
+            await _db.SaveChangesAsync();
+
+            return Ok(await _db.Vestigingen.ToListAsync());
         }
+
+
+        // /api/Vestiging | UPDATE (Put)
 
         [HttpPut]
         public async Task<ActionResult<List<Vestiging>>> UpdateVestiging(Vestiging request)
         {
-            var vestiging = vestigingen.Find(h => h.VestigingsNummer == request.VestigingsNummer);
-            if (vestiging == null)
+            var dbVestiging = await _db.Vestigingen.FindAsync(request.VestigingsNummer);
+            if (dbVestiging == null)
             {
                 return BadRequest("Vestiging niet gevonden.");
             }
-            vestiging.Naam = request.Naam;
-            vestiging.Adres = request.Adres;
-            vestiging.Plaats = request.Plaats;
-            vestiging.TelefoonNummer = request.TelefoonNummer;
+            dbVestiging.Naam = request.Naam;
+            dbVestiging.Adres = request.Adres;
+            dbVestiging.Plaats = request.Plaats;
+            dbVestiging.TelefoonNummer = request.TelefoonNummer;
 
-            return Ok(vestigingen);
+            await _db.SaveChangesAsync();
+
+            return Ok(await _db.Vestigingen.ToListAsync());
         }
+
+
+        // /api/Vestiging/{id} | DELETE (Delete)
 
         [HttpDelete("{id}")]
         public async Task<ActionResult<List<Vestiging>>> Delete(int id)
         {
-            var vestiging = vestigingen.Find(h => h.VestigingsNummer == id);
-            if (vestiging == null)
+             var dbVestiging = await _db.Vestigingen.FindAsync(id);
+            if (dbVestiging == null)
             {
                 return BadRequest("Vestiging niet gevonden.");
             }
-            vestigingen.Remove(vestiging);
-            return Ok(vestigingen);
+            _db.Vestigingen.Remove(dbVestiging);
+
+            await _db.SaveChangesAsync();
+
+            return Ok(await _db.Vestigingen.ToListAsync());
         }
     }
 }
