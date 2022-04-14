@@ -1,8 +1,8 @@
 # BouwmarktAPI
 
-To my opinion I really messed up my previous assignment (see: Bouwmarkt).
+To my opinion I messed up a previous assignment (see: Bouwmarkt).
 
-Anyhow I'm redoing the assignment at my own pace the upcoming days. So at the moment of writing this code  also not finished yet!
-I will code it step by step. Of course each repository commit is woeking and runnable. And this time it is possible to test the API with Swagger.
+Anyhow I'm redoing the assignment at my own pace the upcoming days. So at the moment of writing this readme the code is not finished.
+I will program it step by step. Of course each repository commit is woeking and runnable. This time a separate API, possible to test with Swagger.
 
-I enjoy coding. - Showing myself and future employers I am capable of doing these kind of ASP.NET projects!
+I enjoy coding. #Showing myself and future employers I am capable of doing these kind of ASP.NET projects!
