@@ -1,4 +1,4 @@
-﻿using Bouwmarkt_Models;
+﻿using Bouwmarkt_DataAccess;
 using Microsoft.EntityFrameworkCore;
 
 namespace Bouwmarkt_API.Data

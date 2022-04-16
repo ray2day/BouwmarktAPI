@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Bouwmarkt_Models
+namespace Bouwmarkt_DataAccess
 {
     public class Vestiging
     {

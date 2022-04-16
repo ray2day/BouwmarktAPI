@@ -1,4 +1,4 @@
-﻿using Bouwmarkt_Models;
+﻿using Bouwmarkt_DataAccess;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Bouwmarkt_API.Controllers

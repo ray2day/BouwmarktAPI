@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Bouwmarkt_Models\Bouwmarkt_Models.csproj" />
+    <ProjectReference Include="..\Bouwmarkt_DataAccess\Bouwmarkt_DataAccess.csproj" />
   </ItemGroup>
 
 </Project>
