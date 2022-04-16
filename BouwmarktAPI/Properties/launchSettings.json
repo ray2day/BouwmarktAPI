@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "BouwmarktAPI": {
+    "Bouwmarkt_API": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

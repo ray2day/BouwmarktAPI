@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace BouwmarktAPI.Migrations
+namespace Bouwmarkt_API.Migrations
 {
     public partial class CreateInitial : Migration
     {

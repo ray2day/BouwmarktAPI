@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Bouwmarkt_Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BouwmarktAPI.Controllers
+namespace Bouwmarkt_API.Controllers
 {
     [ApiController]                                          // (API controller; dus geen MVC controller!! wel volgens MVC pattern!)
     [Route("api/[controller]")]

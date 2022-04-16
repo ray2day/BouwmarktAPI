@@ -1,6 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Bouwmarkt_Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace BouwmarktAPI.Data
+namespace Bouwmarkt_API.Data
 {
     public class ApplicationDbContext : DbContext
     {

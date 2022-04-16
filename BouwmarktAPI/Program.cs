@@ -1,4 +1,4 @@
-global using BouwmarktAPI.Data;
+global using Bouwmarkt_API.Data;
 global using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

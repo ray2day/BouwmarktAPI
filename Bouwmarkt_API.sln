@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32407.343
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BouwmarktAPI", "BouwmarktAPI\BouwmarktAPI.csproj", "{850A25F8-AA28-4114-BB01-7B8776BC5493}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bouwmarkt_API", "BouwmarktAPI\Bouwmarkt_API.csproj", "{850A25F8-AA28-4114-BB01-7B8776BC5493}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bouwmarkt_Models", "Bouwmarkt_Models\Bouwmarkt_Models.csproj", "{918A9512-D55C-439F-BFDF-C4EB8AFAE62C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{850A25F8-AA28-4114-BB01-7B8776BC5493}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{850A25F8-AA28-4114-BB01-7B8776BC5493}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{850A25F8-AA28-4114-BB01-7B8776BC5493}.Release|Any CPU.Build.0 = Release|Any CPU
+		{918A9512-D55C-439F-BFDF-C4EB8AFAE62C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{918A9512-D55C-439F-BFDF-C4EB8AFAE62C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{918A9512-D55C-439F-BFDF-C4EB8AFAE62C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{918A9512-D55C-439F-BFDF-C4EB8AFAE62C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
