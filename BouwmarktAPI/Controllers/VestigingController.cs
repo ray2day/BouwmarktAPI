@@ -3,15 +3,15 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Bouwmarkt_API.Controllers
 {
-    [ApiController]                                          // (API controller; dus geen MVC controller!! wel volgens MVC pattern!)
+    [ApiController]                                          // (API controller, volgens MVC pattern)
     [Route("api/[controller]")]
     public class VestigingController : ControllerBase
     {
-        private readonly ApplicationDbContext _db;
+        private readonly ApplicationDbContext _vestigingRepository;
 
-        public VestigingController(ApplicationDbContext db)
+        public VestigingController(ApplicationDbContext vestigingRepository)
         {
-            _db = db;
+            _vestigingRepository = vestigingRepository;
         }
 
 
@@ -20,13 +20,13 @@ namespace Bouwmarkt_API.Controllers
         [HttpGet]
         public async Task<ActionResult<List<Vestiging>>> Get()
         {
-            return Ok(await _db.Vestigingen.ToListAsync());
+            return Ok(await _vestigingRepository.Vestigingen.ToListAsync());
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Vestiging>> Get(int id)
         {
-            var vestiging = await _db.Vestigingen.FindAsync(id);
+            var vestiging = await _vestigingRepository.Vestigingen.FindAsync(id);
             if (vestiging == null)
             {
                 return BadRequest("Vestiging niet gevonden.");
@@ -40,10 +40,10 @@ namespace Bouwmarkt_API.Controllers
         [HttpPost]
         public async Task<ActionResult<List<Vestiging>>> AddVestiging(Vestiging vestiging)
         {
-            _db.Vestigingen.Add(vestiging);
-            await _db.SaveChangesAsync();
+            _vestigingRepository.Vestigingen.Add(vestiging);
+            await _vestigingRepository.SaveChangesAsync();
 
-            return Ok(await _db.Vestigingen.ToListAsync());
+            return Ok(await _vestigingRepository.Vestigingen.ToListAsync());
         }
 
 
@@ -52,19 +52,19 @@ namespace Bouwmarkt_API.Controllers
         [HttpPut]
         public async Task<ActionResult<List<Vestiging>>> UpdateVestiging(Vestiging request)
         {
-            var dbVestiging = await _db.Vestigingen.FindAsync(request.VestigingsNummer);
-            if (dbVestiging == null)
+            var vestigingRepositoryVestiging = await _vestigingRepository.Vestigingen.FindAsync(request.VestigingsNummer);
+            if (vestigingRepositoryVestiging == null)
             {
                 return BadRequest("Vestiging niet gevonden.");
             }
-            dbVestiging.Naam = request.Naam;
-            dbVestiging.Adres = request.Adres;
-            dbVestiging.Plaats = request.Plaats;
-            dbVestiging.TelefoonNummer = request.TelefoonNummer;
+            vestigingRepositoryVestiging.Naam = request.Naam;
+            vestigingRepositoryVestiging.Adres = request.Adres;
+            vestigingRepositoryVestiging.Plaats = request.Plaats;
+            vestigingRepositoryVestiging.TelefoonNummer = request.TelefoonNummer;
 
-            await _db.SaveChangesAsync();
+            await _vestigingRepository.SaveChangesAsync();
 
-            return Ok(await _db.Vestigingen.ToListAsync());
+            return Ok(await _vestigingRepository.Vestigingen.ToListAsync());
         }
 
 
@@ -73,16 +73,16 @@ namespace Bouwmarkt_API.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<List<Vestiging>>> Delete(int id)
         {
-             var dbVestiging = await _db.Vestigingen.FindAsync(id);
-            if (dbVestiging == null)
+            var vestigingRepositoryVestiging = await _vestigingRepository.Vestigingen.FindAsync(id);
+            if (vestigingRepositoryVestiging == null)
             {
                 return BadRequest("Vestiging niet gevonden.");
             }
-            _db.Vestigingen.Remove(dbVestiging);
+            _vestigingRepository.Vestigingen.Remove(vestigingRepositoryVestiging);
 
-            await _db.SaveChangesAsync();
+            await _vestigingRepository.SaveChangesAsync();
 
-            return Ok(await _db.Vestigingen.ToListAsync());
+            return Ok(await _vestigingRepository.Vestigingen.ToListAsync());
         }
     }
 }

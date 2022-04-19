@@ -1,13 +1,16 @@
-﻿using AutoMapper;
-using Bouwmarkt_Business.Repository.IRepository;
-using Bouwmarkt_DataAccess;
-using Bouwmarkt_DataAccess.Data;
-using Bouwmarkt_Models;
+﻿using System;
+using System.Collections.Generic;
+using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Bouwmarkt_Business.Repository.IRepository;
+using Bouwmarkt_DataAccess;
+using Bouwmarkt_DataAccess.Data;
+using Bouwmarkt_Models;
 
 namespace Bouwmarkt_Business.Repository
 {
@@ -21,31 +24,29 @@ namespace Bouwmarkt_Business.Repository
             _db = db;
             _mapper = mapper;
         }
-
-
-        public VestigingDTO Create(VestigingDTO objDTO)
+        public async Task<VestigingDTO> Create(VestigingDTO objDTO)
         {
             var obj = _mapper.Map<VestigingDTO, Vestiging>(objDTO);
             var addedObj = _db.Vestigingen.Add(obj);
-            _db.SaveChanges();
+            await _db.SaveChangesAsync();
 
             return _mapper.Map<Vestiging, VestigingDTO>(addedObj.Entity);
         }
 
-        public int Delete(int id)
+        public async Task<int> Delete(int id)
         {
-            var obj = _db.Vestigingen.FirstOrDefault(u => u.VestigingsNummer == id);
+            var obj = await _db.Vestigingen.FirstOrDefaultAsync(u => u.VestigingsNummer == id);
             if (obj != null)
             {
                 _db.Vestigingen.Remove(obj);
-                return _db.SaveChanges();
+                return await _db.SaveChangesAsync();
             }
             return 0;
         }
 
-        public VestigingDTO Get(int id)
+        public async Task<VestigingDTO> Get(int id)
         {
-            var obj = _db.Vestigingen.FirstOrDefault(u => u.VestigingsNummer == id);
+            var obj = await _db.Vestigingen.FirstOrDefaultAsync(u => u.VestigingsNummer == id);
             if (obj != null)
             {
                 return _mapper.Map<Vestiging, VestigingDTO>(obj);
@@ -53,14 +54,14 @@ namespace Bouwmarkt_Business.Repository
             return new VestigingDTO();
         }
 
-        public IEnumerable<VestigingDTO> GetAll()
+        public async Task<IEnumerable<VestigingDTO>> GetAll()
         {
-            return _mapper.Map<IEnumerable<Vestiging>, IEnumerable<VestigingDTO>>(_db.Vestigingen);
+            return _mapper.Map<IEnumerable<Vestiging>, IEnumerable<VestigingDTO>>(_db.Vestigingen.Include(u => u.Category).Include(u => u.VestigingPrices));
         }
 
-        public VestigingDTO Update(VestigingDTO objDTO)
+        public async Task<VestigingDTO> Update(VestigingDTO objDTO)
         {
-            var objFromDb = _db.Vestigingen.FirstOrDefault(u => u.VestigingsNummer == objDTO.VestigingsNummer);
+            var objFromDb = await _db.Vestigingen.FirstOrDefaultAsync(u => u.VestigingsNummer == objDTO.VestigingsNummer);
             if (objFromDb != null)
             {
                 objFromDb.Naam = objDTO.Naam;
@@ -68,7 +69,7 @@ namespace Bouwmarkt_Business.Repository
                 objFromDb.Plaats = objDTO.Plaats;
                 objFromDb.TelefoonNummer = objDTO.TelefoonNummer;
                 _db.Vestigingen.Update(objFromDb);
-                _db.SaveChanges();
+                await _db.SaveChangesAsync();
                 return _mapper.Map<Vestiging, VestigingDTO>(objFromDb);
             }
             return objDTO;

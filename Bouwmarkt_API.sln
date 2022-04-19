@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bouwmarkt_API", "BouwmarktA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bouwmarkt_Models", "Bouwmarkt_Models\Bouwmarkt_Models.csproj", "{918A9512-D55C-439F-BFDF-C4EB8AFAE62C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bouwmarkt_DataAccess", "Bouwmarkt_DataAccess\Bouwmarkt_DataAccess.csproj", "{B9AB503F-FFFB-47E9-8796-CAD93DC5382F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bouwmarkt_DataAccess", "Bouwmarkt_DataAccess\Bouwmarkt_DataAccess.csproj", "{B9AB503F-FFFB-47E9-8796-CAD93DC5382F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bouwmarkt_Business", "Bouwmarkt_Business\Bouwmarkt_Business.csproj", "{2877FAD2-56C0-416C-9DDD-DF43E0DD9530}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{B9AB503F-FFFB-47E9-8796-CAD93DC5382F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9AB503F-FFFB-47E9-8796-CAD93DC5382F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9AB503F-FFFB-47E9-8796-CAD93DC5382F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2877FAD2-56C0-416C-9DDD-DF43E0DD9530}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2877FAD2-56C0-416C-9DDD-DF43E0DD9530}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2877FAD2-56C0-416C-9DDD-DF43E0DD9530}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2877FAD2-56C0-416C-9DDD-DF43E0DD9530}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
