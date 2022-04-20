@@ -15,5 +15,6 @@ namespace Bouwmarkt_DataAccess.Data
         }
 
         public DbSet<Vestiging> Vestigingen { get; set; }
+        public DbSet<Koopzondag> Koopzondagen { get; set; }
     }
 }

@@ -56,7 +56,7 @@ namespace Bouwmarkt_Business.Repository
 
         public async Task<IEnumerable<VestigingDTO>> GetAll()
         {
-            return _mapper.Map<IEnumerable<Vestiging>, IEnumerable<VestigingDTO>>(_db.Vestigingen.Include(u => u.Category).Include(u => u.VestigingPrices));
+            return _mapper.Map<IEnumerable<Vestiging>, IEnumerable<VestigingDTO>>(_db.Vestigingen);
         }
 
         public async Task<VestigingDTO> Update(VestigingDTO objDTO)
