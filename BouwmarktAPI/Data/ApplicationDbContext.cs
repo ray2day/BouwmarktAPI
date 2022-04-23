@@ -8,5 +8,6 @@ namespace Bouwmarkt_API.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
         
         public DbSet<Vestiging> Vestigingen { get; set; }
+        public DbSet<Koopzondag> Koopzondagen { get; set; }
     }
 }
