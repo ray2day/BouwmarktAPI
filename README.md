@@ -1,9 +1,6 @@
 # BouwmarktAPI
 
-To my opinion I messed up a previous assignment (see: Bouwmarkt).
-
-Anyhow, I'm redoing the assignment at my own pace the upcoming days. So at the moment of writing this readme the CODE IS NOT FINISHED.
-I will program it step by step. Of course each repository commit is working and runnable. This time I have built a separate API, possible to test with Swagger. Access to Koopzondagen-database / Vestiging-table use following commands;
+A resit of the previous Bouwmarkt assignment.
 
 <b>GET:</b>
 /api/Vestiging
