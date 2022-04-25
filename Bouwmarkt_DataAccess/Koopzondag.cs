@@ -11,11 +11,11 @@ namespace Bouwmarkt_DataAccess
     public class Koopzondag
     {
         [Key]
-        public int Id { get; set; }        
-        public DateTime? DatumOpeningstijdVan { get; set; }      
-        public DateTime? DatumOpeningstijdTot { get; set; }
+        public int Id { get; set; }
         public int VestigingId { get; set; }
         [ForeignKey("VestigingId")]
-        public Vestiging Vestiging { get; set; }
+
+        public DateTime DatumOpeningstijdVan { get; set; }      
+        public DateTime DatumOpeningstijdTot { get; set; }
     }
 }

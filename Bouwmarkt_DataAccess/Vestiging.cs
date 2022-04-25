@@ -12,6 +12,6 @@ namespace Bouwmarkt_DataAccess
         public string Plaats { get; set; } = String.Empty;
         [Display(Name = "Telefoonnummer")]
         public string TelefoonNummer { get; set; } = String.Empty;
-        public ICollection<Koopzondag> Koopzondagen { get; set; }
+        public ICollection<Koopzondag>? Koopzondagen { get; set; }
     }
 }

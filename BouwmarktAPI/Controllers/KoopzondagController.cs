@@ -36,16 +36,50 @@ namespace Bouwmarkt_API.Controllers
 
 
 
-        // /api/Koopzondag | CREATE (Post)
+        //// /api/Koopzondag | CREATE (Post)
 
-        [HttpPost]
-        public async Task<ActionResult<List<Koopzondag>>> AddKoopzondag(Koopzondag koopzondag)
-        {
-            _koopzondagRepository.Koopzondagen.Add(koopzondag);
-            await _koopzondagRepository.SaveChangesAsync();
+        //[HttpPost]
+        //public async Task<ActionResult<List<Koopzondag>>> AddKoopzondag(Koopzondag koopzondag)
+        //{
+        //    _koopzondagRepository.Koopzondagen.Add(koopzondag);
+        //    await _koopzondagRepository.SaveChangesAsync();
 
-            return Ok(await _koopzondagRepository.Koopzondagen.ToListAsync());
-        }
+        //    return Ok(await _koopzondagRepository.Koopzondagen.ToListAsync());
+        //}
+
+        // ----
+        // /api/Koopzondag | CREATE (Post) - inclusief check of datum reeds aanwezig is [test]
+
+        //[HttpPost]
+        //public async Task<ActionResult<List<Koopzondag>>> AddKoopzondag(Koopzondag koopzondag)
+        //{
+        //    if (koopzondag != null)
+        //    {
+        //        //KoopzondagService ses = new KoopzondagService();
+
+        //        List<Koopzondag> upcomingEvents = await _koopzondagRepository.Koopzondagen.ToListAsync();
+
+        //        bool conflict = false;
+
+        //        foreach (Koopzondag se in upcomingEvents)
+        //        {
+        //            if(DateOnly.FromDateTime(koopzondag.DatumOpeningstijdVan) == DateOnly.FromDateTime(se.DatumOpeningstijdVan))
+        //            {
+        //                conflict = true;
+        //                break;                    }
+        //        }
+        //    }
+
+
+        //    _koopzondagRepository.Koopzondagen.Add(koopzondag);
+        //    await _koopzondagRepository.SaveChangesAsync();
+
+        //    return Ok(await _koopzondagRepository.Koopzondagen.ToListAsync());
+        //}
+        // ----
+
+
+
 
 
         // /api/Koopzondag | UPDATE (Put)

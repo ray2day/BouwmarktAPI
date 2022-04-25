@@ -12,13 +12,14 @@ namespace Bouwmarkt_Models
     public class KoopzondagDTO
     {
         public int Id { get; set; }
+        [Required]
+        public int VestigingId { get; set; }
+
         [Required(ErrorMessage = "Datum en Openingstijd Van is verplicht")]
         // validatie nog implementeren!
-        public DateTime? DatumOpeningstijdVan { get; set; }
+        public DateTime DatumOpeningstijdVan { get; set; }
         [Required(ErrorMessage = "Datum en Openingstijd Tot is verplicht")]
         // validatie nog implementeren!
-        public DateTime? DatumOpeningstijdTot { get; set; }
-        public int VestigingId { get; set; }
-        public Vestiging Vestiging { get; set; }
+        public DateTime DatumOpeningstijdTot { get; set; }
     }
 }
