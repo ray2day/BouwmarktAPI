@@ -2,7 +2,7 @@
 
 I rewrote the Bouwmarkt code to match the original assignment of building a ASP.NET (C#) Web Application management system for a hardware store to keep track of shopping Sundays. Using Entity Framework on a Code-first / Database-first base, MS SQL database with CRUD operations based on the REST principle. No front end implementation this time and possibility to test the API with Swagger.
 
-Instructions for testing are straight forward;
+Instructions for testing are pretty straight forward;
 
 <b>GET:</b>
 /api/Vestiging
