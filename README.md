@@ -19,6 +19,6 @@ Instructions for testing are pretty straight forward;
 <b>DELETE:</b>
 /api/Vestiging/{id}
 
-<I>Code here is runnable but not finished yet! Just added Koopzondagen. I am testing. After that I will implement some validation (prevent duplicate dates etc.). Separate I wrote a function to determine possible shopping Sundays a validation which I hope to implement later</I>.
+<I>Code here is runnable but not finished yet! Just added the Koopzondagen class itself. I am testing. After that I will implement some validation (prevent duplicate dates etc.). Separate I wrote a function to determine possible shopping Sundays a validation which I hope to implement later</I>.
 
 #Showing myself and future employers I am capable of doing these kind of ASP.NET projects!
